@@ -38,7 +38,7 @@
 <!--picture of myself -->
 <h1><br>Emily Chen</h1>
 
-<! -- About section -->
+<!-- About section -->
 <h2>About</h2>
 <p>
 I study Applied Mathematics and Computer Science at the University of California San Diego and will be graduating this June. I look forward to apply my analytical skills, expand my knowledge in mathematics and computer science, and share about my experience here!
