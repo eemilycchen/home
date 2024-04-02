@@ -5,9 +5,9 @@
 	<title> Emily Chen </title>
 	<style>
 	body{
-	background-color:#fff5fe;
+	background-color:#fffafd;
 	margin: 0 10%;
-	font-family: sans-serif;
+	font-family: monospace;
 	}	
 	h1{
 	text-align: center;
@@ -17,15 +17,26 @@
 	border-bottom: 1px solid #57b1dc;
 	margin-top: 30px;
 	}
+	body::after {
+	content: 'Last Updated April 2024';
+        position: absolute;
+        bottom: 30px;
+       	left: 10%;
+	right: 90%;
+        width: 80%;
+        height: 1px;
+        background-color: #57b1dc;
+        }
 	h2 {
 	color: #592e18;
+	font-family: monospace;
 	font-size: 1em;
 	}
 	</style>
 </head>
 <body>
 <!--picture of myself -->
-<h1><img src="me.jpg" alt="logo" width="186" height="403"><br>Emily Chen</h1>
+<h1><br>Emily Chen</h1>
 
 <! -- About section -->
 <h2>About</h2>
