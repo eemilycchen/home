@@ -40,7 +40,9 @@ To be added soon!
 
 <h2>Contact Information</h2>
 <p>
-emc001@ucsd.edu
+emc001@ucsd.edu<br>
+<a href="https://github.com/eemilycchen">GitHub</a> <br>
+<a href="https://www.linkedin.com/in/eemilycchen/">LinkedIn</a>
 </p>
 </body>
 </html>
