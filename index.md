@@ -1,7 +1,7 @@
 <html> 
 <head>
 	<meta charset="utf-8">
-	<title> Emily Chen dsfsd</title>
+	<title> Emily Chen</title>
 	<style>
 	body{
 	background-color:#fffafd;
