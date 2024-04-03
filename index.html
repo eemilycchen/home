@@ -1,13 +1,16 @@
 <!-- 
 	Author: Emily Chen
-	Help/References: Learning Web Design by Jennifer Robbins
+	Website Skeleton Code: Learning Web Design by Jennifer Robbins
 	Bugs: None
 -->
 <!DOCTYPE html>
 <html> 
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Emily Chen</title>
+	<!-- <title>Tableau Visualization</title> -->
+	<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 	<style>
 	body{
 	background-color:#faf1ea;
@@ -23,25 +26,30 @@
 	border-bottom: 1px solid #af4b19d5;
 	margin-top: 30px;
 	}
-	body::after {
-	content: 'Last Updated April 2024';
-        position: absolute;
-        bottom: 30px;
-       	left: 10%;
-	right: 90%;
-        width: 80%;
-        height: 1px;
-        background-color: #af4b19d5;
-        }
 	h2 {
 	color: #ed2593d5;
 	font-family: monospace;
 	font-size: 1em;
 	}
+	/* footer {
+	position: relative;
+	bottom: 0;
+	border-top: 1px solid #af4b19d5;
+	} */
+	body::after {
+	content: 'Last Updated April 2024';
+	display: block;
+	position: relative;
+	height: 10px;
+	width: 100%;
+	border-top: 1px solid #af4b19d5;
+	margin-top: 30px;
+	padding-bottom: 30px;
+	}
 	</style>
 </head>
 <body>
-<!--picture of myself -->
+
 <h1><br>Emily Chen</h1>
 
 <!-- About section -->
@@ -53,7 +61,16 @@ I study Applied Mathematics and Computer Science at the University of California
 <h2>PROJECTS</h2>
 <p>
 <a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
-<!-- add Pictures here later!-->
+<!-- 
+	Tableau Embedding:
+	https://help.tableau.com/current/api/embedding_api/en-us/index.html
+ -->
+<section>
+<tableau-viz id="tableauViz"       
+src='https://public.tableau.com/views/Superstore_embedded_800x800/Overview'      
+toolbar="bottom" hide-tabs>
+</tableau-viz>
+</section>
 </p>
 
 <h2>WAYS TO REACH ME</h2>
@@ -62,5 +79,8 @@ Drop by at my <a href="https://github.com/eemilycchen">GitHub</a> page <br>
 Connect with me on <a href="https://www.linkedin.com/in/eemilycchen/">LinkedIn</a> <br>
 Or just <a href= "mailto: emc001@ucsd.edu"> email</a> me!
 </p>
+<!-- <footer>
+	<p>Last Updated April 2024.</p>
+</footer> -->
 </body>
 </html>
