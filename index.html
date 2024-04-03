@@ -1,6 +1,8 @@
 <!-- 
 	Author: Emily Chen
 	Website Skeleton Code: Learning Web Design by Jennifer Robbins
+	Tableau embedding help: https://help.tableau.com/current/api/embedding_api/en-us/index.html
+ -->
 	Bugs: None
 -->
 <!DOCTYPE html>
@@ -9,7 +11,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Emily Chen</title>
-	<!-- <title>Tableau Visualization</title> -->
 	<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 	<style>
 	body{
@@ -31,11 +32,6 @@
 	font-family: monospace;
 	font-size: 1em;
 	}
-	/* footer {
-	position: relative;
-	bottom: 0;
-	border-top: 1px solid #af4b19d5;
-	} */
 	body::after {
 	content: 'Last Updated April 2024';
 	display: block;
@@ -61,13 +57,9 @@ I study Applied Mathematics and Computer Science at the University of California
 <h2>PROJECTS</h2>
 <p>
 <a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
-<!-- 
-	Tableau Embedding:
-	https://help.tableau.com/current/api/embedding_api/en-us/index.html
- -->
 <section>
 <tableau-viz id="tableauViz"       
-src='https://public.tableau.com/views/Superstore_embedded_800x800/Overview'      
+src='https://public.tableau.com/views/urban-data/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link'      
 toolbar="bottom" hide-tabs>
 </tableau-viz>
 </section>
