@@ -1,25 +1,31 @@
 <!-- 
 	Author: Emily Chen
 	Website Skeleton Code: Learning Web Design by Jennifer Robbins
-	Tableau embedding help: https://help.tableau.com/current/api/embedding_api/en-us/index.html
 	Bugs: None
 -->
 <!DOCTYPE html>
-<html> 
+<html lang="en"> 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title> Emily Chen</title>
+	<!-- <title>Tableau Visualization</title> -->
 	<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 	<style>
 	body{
-	background-color:#faf1ea;
-	margin: 0 10%;
-	font-family: monospace;
-	}	
+		background-color:#faf1ea;
+		margin: 0 10%;
+		font-family: Georgia, serif;
+		}
+	/* How do we do that cool vertical line thing? */
+	.vertical-line {
+  	border-left: 5px solid #ed2593d5;
+	height: auto;
+	}
+
 	h1{
 	text-align: center;
-	font-family: serif;
+	font-family: Georgia, serif;
     color: #ed2593d5;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -28,11 +34,12 @@
 	}
 	h2 {
 	color: #ed2593d5;
-	font-family: monospace;
+	font-family: Georgia, serif;
 	font-size: 1em;
 	}
+	/* How do I update the footnote? */
 	body::after {
-	content: 'Last Updated April 2024';
+	content: 'Last Updated July 2024';
 	display: block;
 	position: relative;
 	height: 10px;
@@ -46,21 +53,33 @@
 <body>
 
 <h1><br>Emily Chen</h1>
-<div class="vertical-line"></div>
-<h2>ABOUT</h2>
-<p>
-I study Applied Mathematics and Computer Science at the University of California San Diego and will be graduating this June. I look forward to apply my analytical skills, expand my knowledge in mathematics and computer science, and share about my experience here!
-</p>
 
+<!-- About section -->
+<div class="vertical-line">
+<blockquote>
+	<h2>ABOUT</h2>
+	<p>
+	I studied applied Mathematics and Computer Science at the University of California San Diego. 
+	</p></div>
+</blockquote>
 <h2>PROJECTS</h2>
 <p>
 <a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
+<!-- 
+	Tableau Embedding:
+	https://help.tableau.com/current/api/embedding_api/en-us/index.html
+ -->
 <section>
 <tableau-viz id="tableauViz"       
 src='https://public.tableau.com/views/urban-data/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link'      
 toolbar="bottom" hide-tabs>
 </tableau-viz>
 </section>
+</p>
+
+<h2>COURSES</h2>
+<p>
+	Mathematical Statistic
 </p>
 
 <h2>WAYS TO REACH ME</h2>
