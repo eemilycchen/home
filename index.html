@@ -12,45 +12,90 @@
 	<!-- <title>Tableau Visualization</title> -->
 	<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 	<style>
-	body{
-		background-color:#faf1ea;
+	body {
+		background-color:white;
 		margin: 0 10%;
 		font-family: Georgia, serif;
-		}
+	}
 	/* How do we do that cool vertical line thing? */
 	.vertical-line {
-  	border-left: 5px solid #ed2593d5;
-	height: auto;
+		border-left: 5px solid  #000000b8;
+		height: auto;
 	}
 
-	h1{
-	text-align: center;
-	font-family: Georgia, serif;
-    color: #ed2593d5;
-	font-weight: normal;
-	text-transform: uppercase;
-	border-bottom: 1px solid #af4b19d5;
-	margin-top: 30px;
+	h1 {
+		text-align: center;
+		font-family: Georgia, serif;
+		color: #000000b8;
+		font-weight: normal;
+		text-transform: uppercase;
+		border-bottom: 1px solid  #000000b8;
+		margin-top: 30px;
 	}
 	h2 {
-	color: #ed2593d5;
-	font-family: Georgia, serif;
-	font-size: 1em;
+		color:  #000000b8;
+		font-family: Georgia, serif;
+		font-size: 1em;
 	}
 	/* How do I update the footnote? */
 	body::after {
-	content: 'Last Updated July 2024';
-	display: block;
-	position: relative;
-	height: 10px;
-	width: 100%;
-	border-top: 1px solid #af4b19d5;
-	margin-top: 30px;
-	padding-bottom: 30px;
+		content: 'Last Updated July 2024';
+		display: block;
+		position: relative;
+		height: 10px;
+		width: 100%;
+		border-top: 1px solid  #000000b8;
+		margin-top: 30px;
+		padding-bottom: 30px;
+	}
+	/* How do I default to system preference? */
+	@media (prefers-color-scheme: dark) {
+	body {
+			background-color: black;
+		}
+		.vertical-line {
+		border-left: 5px solid white;
+		}
+		h1 {
+			color:white;
+			border-bottom: 1px solid  white;
+		}
+		h2 {
+			color: white;
+		}
+		p {
+			color: white;
+		}
+		body::after {
+			color: white;
+			border-top: 1px solid white;
+		}
 	}
 	</style>
+	<!-- How do I add style for links? -->
+	<style>
+		/* unvisited link */
+		a:link {
+			color: white;
+		}
+		
+		/* visited link */
+		a:visited {
+			color: white;
+		}
+		
+		/* mouse over link */
+		a:hover {
+			color: Hotpink;
+		}
+		
+		/* selected link */
+		a:active {
+			color: green;
+		}
+		</style>
 </head>
-<body>
+
 
 <h1><br>Emily Chen</h1>
 
