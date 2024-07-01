@@ -17,6 +17,10 @@
 		margin: 0 10%;
 		font-family: Georgia, serif;
 	}
+	/* How can  I split into different columns? */
+	.three-columns {
+	column-count: 3;
+	}
 	/* How do we do that cool vertical line thing? */
 	.vertical-line {
 		border-left: 5px solid  #000000b8;
@@ -27,7 +31,7 @@
 		text-align: center;
 		font-family: Georgia, serif;
 		color: #000000b8;
-		font-weight: normal;
+		font-size:2em;
 		text-transform: uppercase;
 		border-bottom: 1px solid  #000000b8;
 		margin-top: 30px;
@@ -35,7 +39,7 @@
 	h2 {
 		color:  #000000b8;
 		font-family: Georgia, serif;
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 	/* How do I update the footnote? */
 	body::after {
@@ -48,7 +52,31 @@
 		margin-top: 30px;
 		padding-bottom: 30px;
 	}
-	/* How do I default to system preference? */
+	/* How do I add light mode colors for links? */
+	/* unvisited link */
+	a:link {
+		color: black;
+	}
+	
+	/* visited link */
+	a:visited {
+		color: black;
+	}
+	
+	/* mouse over link */
+	a:hover {
+		color: Hotpink;
+	}
+	
+	/* selected link */
+	a:active {
+		color: green;
+	}
+
+	/* How do I add the ability to show previews?*/
+
+	
+	/* How do change colors for dark mode? */
 	@media (prefers-color-scheme: dark) {
 	body {
 			background-color: black;
@@ -91,27 +119,7 @@
 	}
 	</style>
 	<!-- How do I add style for links? -->
-	<style>
-		/* unvisited link */
-		a:link {
-			color: black;
-		}
-		
-		/* visited link */
-		a:visited {
-			color: black;
-		}
-		
-		/* mouse over link */
-		a:hover {
-			color: Hotpink;
-		}
-		
-		/* selected link */
-		a:active {
-			color: green;
-		}
-		</style>
+	
 </head>
 
 
@@ -122,14 +130,16 @@
 <blockquote>
 	<h2>ABOUT</h2>
 	<p>
-	I studied applied Mathematics and Computer Science at the University of California San Diego. 
+	I graduated with a Bachelor of Science degree in Applied Mathematics, with a minor in Computer Science at the University of California San Diego. For six years as 
+	a math instructor, I strived to be vigilant and inclusive to problem-solve mathematical problems and adapt to a wide diversity of students. 
+	My studies fostered my passion in mathematics and evolved my direction toward artifical intelligence. My worldview and experiences empowers me to continue using mathematics and computer science to make a meaningful difference. 
 	</p></div>
 </blockquote>
 <h2>PROJECTS</h2>
 <p>
-<a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
+1. <a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
 <!-- 
-	Tableau Embedding:
+	How can I do Tableau chart embedding?
 	https://help.tableau.com/current/api/embedding_api/en-us/index.html
  -->
 <section>
@@ -138,18 +148,57 @@ src='https://public.tableau.com/views/urban-data/Dashboard1?:language=en-US&publ
 toolbar="bottom" hide-tabs>
 </tableau-viz>
 </section>
-</p>
 
+2. <a href="https://github.com/eemilycchen/blue-line-trolley">A Perspective of Property Value and Police Proximity to Crime Rates at the San Diego Blue Line Trolley</a>
+<br>
+3. <a href="https://sites.google.com/view/174-final/home">Onto Climate Resilience</a>
+
+</p>
 <h2>COURSES</h2>
+<!-- Math courses -->
+<p><b><i>Probability, Stochastic Processes I, Stochastic Processes II</i></b></p>
+<p> This is a  three-course sequence. The first part covers key topics in probability theory including, conditional probability, independence, random
+	variables, distributions, expectation, variance, Baye's Rule, Law of Total Probability, Law of Large Numbers (LLN) and Central Limit Theorem (CLT). 
+	The second and the third part cover topics in distribution of martingale, random sums, Markov chain, n-step transition probability, successive maxima, one-dimensional random walks, 
+	successive runs, branching process, Gambler's Ruin, limiting probability distribution, stationary distribution, recurrent and transient states, and Poisson process. 
+</p>
+<p><b><i>Exploratory Data Analysis, and Inference with Mathematical Statistics</i></b></p>
 <p>
-	Mathematical Statistic
+	This is a project-based course that uses Python modules and libraries to automate statistical inferences and create 2D and 3D visualizations. The topics that were covered
+	were regression analysis for a single variable and multiple variables, interpretation of regression analysis and coefficients, diagnostics for normality and independence of residuals and heteroscedasticity,
+	generalized hypothesis testing, (multinomial) logistic regression, variable selection using adjusted R squared, AIC, and BIC, cross-validation, and stepwise selection.
+</p>
+<p><b><i>Hidden Data in Random Matrices with Numerical Linear Algebra</i></b></p>
+<p>
+	This is a rigorous course that builds the understanding of the principal component analysis (PCA) using mathematical theories. It was completed with a final project to apply PCA to find signals among noisy, large datasets. The topics covered were singular value
+	decomposition for matrices,  least squares method, affine subspaces, unbiased estimators, Wigner's semicircle law, and Marchenko-Pastur laws. This was course was taken after Numerical Linear Algebra, which cover topics in
+	projections, orthogonality, eigendecomposition, and positive definite semisimple matrices, which I found to be helpful for theoretical connections.
+</p>
+<!-- Computer Science Courses -->
+<p><b><i>Deep Learning</i></b></p>
+<p>
+	This was a competitive, project-based course. The topics covered were the fundamentals of deep neural networks such as linear regression, multi-layer perceptrons, backpropagation, automatic differentiation, convolution neural networks, recurrent neural networks, 
+	and transformers. 
 </p>
 
+<!-- Interdisciplinary Courses -->
+<p><b><i>Data Science in Practice</i></b></p>
+<p>
+	This is a project-based course. The topics covered were presenting robust, clear visualizations using <code>seaborn</code> and <code>matplotlib</code>, applications of descriptive, exploratory, and inferential anlayses, non-parametric statistics, bootstrapping (resampling), sentiment analysis, TF-IDF, machine learning approaches (supervised vs unsupervised), train-validate-test sets, k-folds cross validation, 
+	data processing and transformation using <code>scikit-learn</code>, feature engineering, searching for best hyperparameters, model selection, support vector machine (SVM), evaluating accuracy, sensitivity, and specificity with confusion matrices, and geospatial analysis.
+
+</p>
+<p><b><i>Data Ethics</i></b></p>
+<p>
+This is a project-based course. There are three in quarter projects that targets a deeper understanding of ethical values along major intervention points of a data science effort. The course is completed with a final project as a summative effort. Topics covered include consequences of accepting the Neurality Thesis, problem defintion, values, data acquisition, privacy, consent: acts of consent, informed consent, and 
+educated consent, and Goodhart's Law. 
+</p>
 <h2>WAYS TO REACH ME</h2>
 <p>
-Drop by at my <a href="https://github.com/eemilycchen">GitHub</a> page <br>
-Connect with me on <a href="https://www.linkedin.com/in/eemilycchen/">LinkedIn</a> <br>
-Or just <a href= "mailto: emc001@ucsd.edu"> email</a> me!
+
+Drop by at my <a href="https://github.com/eemilycchen">GitHub</a> page  &#x1F44B; <br>
+Connect with me on <a href="https://www.linkedin.com/in/eemilycchen/">LinkedIn</a> &#x1F91D; <br>
+Or just <a href= "mailto: emc001@ucsd.edu"> email</a> me! &#x1F4E8;
 </p>
 </body>
 </html>
