@@ -17,9 +17,9 @@
 		margin: 0 10%;
 		font-family: Georgia, serif;
 	}
-	/* How can  I split into different columns? */
-	.three-columns {
-	column-count: 3;
+	tab {
+    display: inline-block;
+    margin-left: 1em;
 	}
 	/* How do we do that cool vertical line thing? */
 	.vertical-line {
@@ -53,27 +53,18 @@
 		padding-bottom: 30px;
 	}
 	/* How do I add light mode colors for links? */
-	/* unvisited link */
 	a:link {
 		color: black;
 	}
-	
-	/* visited link */
 	a:visited {
 		color: black;
 	}
-	
-	/* mouse over link */
 	a:hover {
 		color: Hotpink;
 	}
-	
-	/* selected link */
 	a:active {
 		color: green;
 	}
-
-	/* How do I add the ability to show previews?*/
 
 	
 	/* How do change colors for dark mode? */
@@ -101,24 +92,17 @@
 		a:link {
 			color: white;
 		}
-		
-		/* visited link */
 		a:visited {
 			color: white;
 		}
-		
-		/* mouse over link */
 		a:hover {
 			color: Hotpink;
 		}
-		
-		/* selected link */
 		a:active {
 			color: green;
 		}
 	}
 	</style>
-	<!-- How do I add style for links? -->
 	
 </head>
 
@@ -137,7 +121,8 @@
 </blockquote>
 <h2>PROJECTS</h2>
 <p>
-1. <a href="https://github.com/eemilycchen/Statistical-Analysis">Statistical Analysis on Urbanization</a>
+1. Statistical Analysis on Urbanization <br>
+<tab>visual presentation | <a href="https://github.com/eemilycchen/Statistical-Analysis" target="_blank">source code</a></tab> 
 <!-- 
 	How can I do Tableau chart embedding?
 	https://help.tableau.com/current/api/embedding_api/en-us/index.html
@@ -149,11 +134,22 @@ toolbar="bottom" hide-tabs>
 </tableau-viz>
 </section>
 
-2. <a href="https://github.com/eemilycchen/blue-line-trolley">A Perspective of Property Value and Police Proximity to Crime Rates at the San Diego Blue Line Trolley</a>
-<br>
-3. <a href="https://sites.google.com/view/174-final/home">Onto Climate Resilience</a>
-
+2. A Perspective of Property Value and Police Proximity to Crime Rates at the San Diego Blue Line Trolley <br>
+<tab>visual presentation | <a href="https://github.com/eemilycchen/blue-line-trolley" target="_blank">source code</a> </tab> <br>
+<section>
+<tableau-viz id="tableauViz"
+src="https://public.tableau.com/views/incidentcounts/Sheet1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link"
+toolbar="bottom" hide-tabs>
+</tableau-viz>
+</section>
+3. Onto Climate Resilience <br>
+<section>
+	<iframe src="https://ourworldindata.org/grapher/total-ghg-emissions?tab=map" loading="lazy" style="width: 100%; height: 600px; 
+	border: 0px none;" allow="web-share; clipboard-write"></iframe>
+</section>
+<tab>visual presentation | <a href="https://sites.google.com/view/174-final/home" target="_blank">webpage</a></tab>
 </p>
+
 <h2>COURSES</h2>
 <!-- Math courses -->
 <p><b><i>Probability, Stochastic Processes I, Stochastic Processes II</i></b></p>
@@ -196,9 +192,9 @@ educated consent, biases (e.g. deviation from a social or statistical norm), com
 <h2>WAYS TO REACH ME</h2>
 <p>
 
-Drop by at my <a href="https://github.com/eemilycchen">GitHub</a> page  &#x1F44B; <br>
-Connect with me on <a href="https://www.linkedin.com/in/eemilycchen/">LinkedIn</a> &#x1F91D; <br>
-Or just <a href= "mailto: emc001@ucsd.edu"> email</a> me! &#x1F4E8;
+Drop by at my <a href="https://github.com/eemilycchen" target="_blank">GitHub</a> page  &#x1F44B; <br>
+Connect with me on <a href="https://www.linkedin.com/in/eemilycchen/ "target="_blank">LinkedIn</a> &#x1F91D; <br>
+Or just <a href= "mailto: emily.764537@gmail.com"> email</a> me! &#x1F4E8;
 </p>
 </body>
 </html>
