@@ -202,9 +202,20 @@
 <h2>Data Science Projects</h2>
 
 <div class="card">
+	<div class="title">RAG System for Documentation Q&amp;A + Scientific-Claim Verification <span class="dot"></span></div>
+	<div class="meta">Mar 2026 &ndash; Present &middot; AI Engineering &middot; In progress</div>
+	<p class="impact">Building a reproducible multi-config RAG pipeline (LangChain + RapidFire AI) over RapidFire AI documentation and the SciFact claim dataset, evaluated with a 20-question hand-labeled golden set scored via NDCG@k and reciprocal rank under a 2,000-token context budget.</p>
+	<div class="stack"><tab>Python &middot; LangChain &middot; RapidFire AI &middot; OpenAI API &middot; HuggingFace Embeddings &middot; JupyterHub / DSMLP Datahub</tab></div>
+</div>
+
+<div class="card">
 	<div class="title">Clinical Decision Data Platform: MediDB Drug Safety &amp; Recommendation System <span class></span></div>
 	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
 	<p class="impact">Built a Dockerized ETL pipeline ingesting 500+ openFDA FAERS reports and 16 Synthea EHR tables into 4 polyglot databases (PostgreSQL, Neo4j, Qdrant, MongoDB), encoding clinical narratives as 768-dim BioLORD-2023 embeddings. Reduced drug-interaction checks from O(N&sup2;) SQL self-joins to O(1)-per-hop Neo4j traversals and shipped a 5-tab Streamlit dashboard unifying 4 parallel database queries into a 3-tier (Low/Moderate/High) risk report with full audit traceability.</p>
+	<figure style="margin: 10px 0;">
+		<img src="drug_safety_and_recommendations/analysis/figures-1/drug_similarity_heatmap.png" alt="Drug-drug cosine similarity heatmap from BioLORD-2023 embeddings" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
+		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Drug&ndash;drug cosine similarity in BioLORD-2023 embedding space: diagonal self-similarity = 1.0, with meaningful off-diagonal structure (e.g., atorvastatin&ndash;simvastatin cluster as statins).</figcaption>
+	</figure>
 	<div class="links"><tab>summary <a href="drug_safety_and_recommendations/MediDB_ Drug Safety & Recommendation System Report.docx.pdf" target="_blank">pdf</a>, <a href="drug_safety_and_recommendations/DSC202_DrugSafety_v2.pptx" target="_blank" download>pptx</a> | <a href="https://github.com/eemilycchen/drug_safety_and_recommendation" target="_blank">source code</a> | <a href="drug_safety_and_recommendations/docs/database_diagrams.html" target="_blank">database diagrams</a></tab></div>
 	<div class="stack"><tab>Python &middot; PostgreSQL &middot; Neo4j &middot; Qdrant &middot; MongoDB &middot; Docker &middot; Streamlit &middot; BioLORD-2023</tab></div>
 </div>
@@ -213,8 +224,11 @@
 	<div class="title">Big Data Analytics on NYC Taxi: XGBoost Yellow-vs-Green Classification</div>
 	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
 	<p class="impact">Engineered PCA-reduced hourly pickup profiles and tuned an XGBoost classifier across 131K NYC taxi trips, lifting accuracy 0.62 &rarr; 0.95 and macro-F1 0.62 &rarr; 0.94 (minority green-taxi recall 0.45 &rarr; 0.88), validated with a 30-replicate bootstrap (95% CI &plusmn;0.004). Streamlined AWS S3 retrieval across 400+ parquet files, cutting pipeline latency from 30 min to under 10 min.</p>
-	<!-- TODO: Add links to the source code and results figure -->
-	<!-- <div class="links"><tab>summary <a href="big-data-analytics/part4/README.md" target="_blank">README</a>, <a href="big-data-analytics/part4/HW4_2.md" target="_blank">report</a> | <a href="https://github.com/eemilycchen/home/tree/main/big-data-analytics/part4" target="_blank">source code</a> | <a href="big-data-analytics/part4/results/part_b_interpretation.png" target="_blank">results figure</a></tab></div> -->
+	<figure style="margin: 10px 0;">
+		<img src="reports/figures/part_b_interpretation.png" alt="Part B XGBoost confusion matrix and PC feature importance" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
+		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Part B XGBoost on pivoted hourly profiles: confusion matrix (left) shows strong diagonal for both yellow and green cabs; PC-component feature importance (right) highlights PC2 and PC4 as the top drivers.</figcaption>
+	</figure>
+	<div class="links"><tab>summary <a href="reports/bigdata_report.pdf" target="_blank">report (pdf)</a>, <a href="reports/bigdata_slides.pdf" target="_blank">slides (pdf)</a></tab></div>
 	<div class="stack"><tab>Python &middot; XGBoost &middot; PCA &middot; Dask &middot; AWS (EC2, S3) &middot; Cursor</tab></div>
 </div>
 
@@ -222,6 +236,11 @@
 	<div class="title">Multi-Task Learning on Goodreads Users</div>
 	<div class="meta">Sep 2025 &ndash; Dec 2025</div>
 	<p class="impact">Ranked top 22% of 1,600 colleagues in a competitive ML evaluation by designing and optimizing predictive models for binary classification, multi-class classification, and regression under performance and validation constraints. Increased categorical prediction accuracy by ~120% through feature engineering, hyperparameter tuning, and transformer-based embeddings.</p>
+	<figure style="margin: 10px 0;">
+		<img src="reports/figures/goodreads_model_accuracies.png" alt="Goodreads category prediction accuracy progression across three model iterations" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
+		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Goodreads category-prediction accuracy across three model iterations: BoW + LogReg (0.690) &rarr; TF-IDF (1&ndash;2gm) + Linear SVC (0.711) &rarr; DistilBERT fine-tuned (0.780).</figcaption>
+	</figure>
+	<div class="links"><tab>summary <a href="reports/goodreads_report.pdf" target="_blank">report (pdf)</a>, <a href="reports/goodreads_slides.pdf" target="_blank">slides (pdf)</a></tab></div>
 	<div class="stack"><tab>Python &middot; PyTorch &middot; Transformers &middot; Scikit-learn</tab></div>
 </div>
 
@@ -242,7 +261,6 @@
 
 <div class="card">
 	<div class="title">Data Visualizations with Toy Datasets</div>
-	<div class="meta">Ongoing</div>
 	<p class="impact">Interactive Tableau dashboards exploring education outcomes (field of study, starting salary, gender splits) and HR analytics (employment types, satisfaction trends over time).</p>
 	<section>
 		<tableau-viz id="tableauViz2"
@@ -256,18 +274,8 @@
 			toolbar="bottom" hide-tabs>
 		</tableau-viz>
 	</section>
-	<div class="stack"><tab>Tableau</tab></div>
 </div>
 
-
-<!-- Technical skills -->
-<h2>Technical Skills</h2>
-<p>
-<tab><b>Languages:</b> Python, R, SQL, C/C++, Java, MATLAB</tab><br>
-<tab><b>Data &amp; ML:</b> PyTorch, Scikit-learn, XGBoost, PCA, Transformers (BERT, BioLORD), Pandas, Dask</tab><br>
-<tab><b>Databases:</b> PostgreSQL, Neo4j, Qdrant, MongoDB</tab><br>
-<tab><b>Infra &amp; Tools:</b> AWS (EC2, S3), Docker, Git, ETL, Streamlit, Tableau, Cursor</tab>
-</p>
 
 
 <!-- Awards section -->
@@ -293,7 +301,7 @@
 </div>
 <div class="card">
 	<div class="title">LVMTA Chase-Riecken Musicianship Exam &mdash; Level 10 Piano (Theory + Technique/Repertoire)</div>
-	<div class="meta">Certificate + Trophy &middot; Highest Pre-Collegiate Level</div>
+	<div class="meta">Certificate &amp; Trophy &middot; Highest Pre-Collegiate Level</div>
 	<p class="impact">Passed both the Theory and Technique/Repertoire components of the Las Vegas Music Teachers Association's Chase-Riecken Musicianship Exam at Level 10.</p>
 </div>
 
