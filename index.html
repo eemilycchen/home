@@ -50,7 +50,7 @@
 	}
 	/* How do I update the footnote? */
 	body::after {
-		content: 'Last Updated August 2025';
+		content: 'Last Updated April 2026';
 		display: block;
 		position: relative;
 		height: 10px;
@@ -79,6 +79,39 @@
 	background-color: #32CD32;
 	border-radius: 50%;
 	display: inline-block;
+	}
+	.card {
+		border-left: 3px solid #000000b8;
+		padding: 8px 16px;
+		margin: 14px 0;
+	}
+	.card .title {
+		font-weight: bold;
+		color: #000000b8;
+	}
+	.card .meta {
+		font-style: italic;
+		color: #00000099;
+		font-size: 0.95em;
+	}
+	.card .impact {
+		margin: 6px 0;
+	}
+	.card .stack {
+		font-size: 0.9em;
+		color: #00000099;
+	}
+	.links a {
+		text-decoration: underline;
+	}
+	.subtitle {
+		text-align: center;
+		font-family: Georgia, serif;
+		color: #000000b8;
+		font-size: 1.05em;
+		margin-top: -10px;
+		margin-bottom: 20px;
+		font-style: italic;
 	}
 	
 	/* How do change colors for dark mode? */
@@ -123,72 +156,161 @@
 		a:active {
 			color: green;
 		}
+		.card {
+			border-left: 3px solid white;
+		}
+		.card .title,
+		.card .meta,
+		.card .impact,
+		.card .stack {
+			color: white;
+		}
+		.subtitle {
+			color: white;
+		}
 	}
 	</style>
 	
 </head>
 
 
+<body>
+
 <h1><br>Emily Chen</h1>
+<div class="subtitle">Math-grounded, Data-driven, Coding possibilities</div>
 
 <!-- About section -->
 <div class="vertical-line">
 <blockquote>
-	<h2>ABOUT</h2>
+	<h2>About</h2>
 	<p>
-	Hi, feel free to checkout some of these projects I've been working on!
-	</p></div>
+	Hi! I'm Emily, an M.S. Data Science candidate at UC San Diego's Halıcıoğlu Data Science Institute, focusing on Artificial Intelligence and Data &amp; Society. I hold a B.S. in Applied Mathematics with a Computer Science minor from UCSD's Jacobs School of Engineering.
+	</p>
+	<p>
+	I build scalable data pipelines, multi-model database systems, and interactive tools that turn complex data into clear recommendations. I currently TA <a href="https://bsalimi.github.io/dsc100-sp26/" target="_blank">Data Management (DSC 100)</a> and previously studied text representation models as a Graduate Researcher at UCSD.
+	</p>
+	<p>
+	Outside of tech, I like to take long walks around the beach, enjoy a good coffee, and craft gifts for my loved  ones.
+	</p>
 </blockquote>
-<h2>PROJECTS</h2>
-<p>
-San Diego Blue Line Trolley: Property Values, Police Proximity, and Crime Rates <br>
-<tab>summary <a href="https://eemilycchen.github.io/home/visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pdf" target="_blank">pdf</a>, <a href="visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pptx"  target="_blank", download>pptx</a> | <a href="https://github.com/eemilycchen/blue-line-trolley" target="_blank">source code</a> | <a href="html/blue-line-trolley/blue-line-trolley.html" target="_blank">html code</a> </tab> <br>
-<tab> Langauges and Tools: Python, Seaborn, Matplotlib, Geopandas, Tableau</tab>
-<section>
-<tableau-viz id="tableauViz"
-src="https://public.tableau.com/views/incidentcounts/Sheet1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link"
-toolbar="bottom" hide-tabs>
-</tableau-viz>
-</section>
-<br>
-</p>
-<p>
-Machine Learning Explorations (Active Project <span class="dot"></span>) <br>
-<tab> Given a McDonald's nutrition dataset, how can we implement linear regression to predict the calories of an item? summary: pdf, pptx | <a href="https://github.com/eemilycchen/A-Primer-On-ML-Models/blob/main/linear_regression.ipynb" target="_blank">source code</a> | <a href="https://eemilycchen.github.io/home/html/building-models-from-scratch/linear_regression.html " target="_blank">html</a> 
-</tab>
-<tab> Langauges and Tools: Python, Seaborn, Statsmodel, Sklearn</tab>
-</p>
-<p>
-<br>
-Data Visualizations with Toy Datasets<br>
-<tab>Given college education data, what kind of insights can we draw on the field of study, average starting salary, and gender roles in education? 
-</tab> <br>
-<section>
-<tableau-viz id="tableauViz"
-src="https://public.tableau.com/views/education_success_insights/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-toolbar="bottom" hide-tabs>
-</tableau-viz>
-</section>
-<br>
-Given HR data, what kind of insights can we draw on employment types and average satisfaction score over the years? <br>
-<section>
-<tableau-viz id="tableauViz"
-src="https://public.tableau.com/views/cleaned_hr_data/HR_Analysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-toolbar="bottom" hide-tabs>
-</tableau-viz>
-</section>
-</p>
-
-<h2><br>RESOURCES</h2> 
-<!-- Cheatsheet section -->
-<tab> SQL <a href="https://eemilycchen.github.io/home/cheatsheets/SQL_cheatsheet_mod_6.pdf" target="_blank">pdf</a>, <a href="html/sql_nb.html" target="_blank">html code</a> | R pdf, html code | Excel pdf | Tableau <a href="https://eemilycchen.github.io/home/cheatsheets/Tableau_cheatsheet_mod_2.pdf" target="_blank">pdf</a>, html </tab>
+</div>
 
 
-<h2>WAYS TO REACH ME </h2>
+
+
+<!-- Projects section -->
+<h2>Data Science Projects</h2>
+
+<div class="card">
+	<div class="title">Clinical Decision Data Platform: MediDB Drug Safety &amp; Recommendation System <span class></span></div>
+	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
+	<p class="impact">Built a Dockerized ETL pipeline ingesting 500+ openFDA FAERS reports and 16 Synthea EHR tables into 4 polyglot databases (PostgreSQL, Neo4j, Qdrant, MongoDB), encoding clinical narratives as 768-dim BioLORD-2023 embeddings. Reduced drug-interaction checks from O(N&sup2;) SQL self-joins to O(1)-per-hop Neo4j traversals and shipped a 5-tab Streamlit dashboard unifying 4 parallel database queries into a 3-tier (Low/Moderate/High) risk report with full audit traceability.</p>
+	<div class="links"><tab>summary <a href="drug_safety_and_recommendations/MediDB_ Drug Safety & Recommendation System Report.docx.pdf" target="_blank">pdf</a>, <a href="drug_safety_and_recommendations/DSC202_DrugSafety_v2.pptx" target="_blank" download>pptx</a> | <a href="https://github.com/eemilycchen/drug_safety_and_recommendation" target="_blank">source code</a> | <a href="drug_safety_and_recommendations/docs/database_diagrams.html" target="_blank">database diagrams</a></tab></div>
+	<div class="stack"><tab>Python &middot; PostgreSQL &middot; Neo4j &middot; Qdrant &middot; MongoDB &middot; Docker &middot; Streamlit &middot; BioLORD-2023</tab></div>
+</div>
+
+<div class="card">
+	<div class="title">Big Data Analytics on NYC Taxi: XGBoost Yellow-vs-Green Classification</div>
+	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
+	<p class="impact">Engineered PCA-reduced hourly pickup profiles and tuned an XGBoost classifier across 131K NYC taxi trips, lifting accuracy 0.62 &rarr; 0.95 and macro-F1 0.62 &rarr; 0.94 (minority green-taxi recall 0.45 &rarr; 0.88), validated with a 30-replicate bootstrap (95% CI &plusmn;0.004). Streamlined AWS S3 retrieval across 400+ parquet files, cutting pipeline latency from 30 min to under 10 min.</p>
+	<!-- TODO: Add links to the source code and results figure -->
+	<!-- <div class="links"><tab>summary <a href="big-data-analytics/part4/README.md" target="_blank">README</a>, <a href="big-data-analytics/part4/HW4_2.md" target="_blank">report</a> | <a href="https://github.com/eemilycchen/home/tree/main/big-data-analytics/part4" target="_blank">source code</a> | <a href="big-data-analytics/part4/results/part_b_interpretation.png" target="_blank">results figure</a></tab></div> -->
+	<div class="stack"><tab>Python &middot; XGBoost &middot; PCA &middot; Dask &middot; AWS (EC2, S3) &middot; Cursor</tab></div>
+</div>
+
+<div class="card">
+	<div class="title">Multi-Task Learning on Goodreads Users</div>
+	<div class="meta">Sep 2025 &ndash; Dec 2025</div>
+	<p class="impact">Ranked top 22% of 1,600 colleagues in a competitive ML evaluation by designing and optimizing predictive models for binary classification, multi-class classification, and regression under performance and validation constraints. Increased categorical prediction accuracy by ~120% through feature engineering, hyperparameter tuning, and transformer-based embeddings.</p>
+	<div class="stack"><tab>Python &middot; PyTorch &middot; Transformers &middot; Scikit-learn</tab></div>
+</div>
+
+<div class="card">
+	<div class="title">San Diego Blue Line Trolley: Property Values, Police Proximity &amp; Crime Rates</div>
+	<div class="meta">Spring 2024</div>
+	<p class="impact">Analyzed the relationship between San Diego Blue Line Trolley stops, surrounding property values, police station proximity, and crime incident rates; produced an interactive Tableau dashboard for stakeholder-facing insights.</p>
+	<div class="links"><tab>summary <a href="https://eemilycchen.github.io/home/visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pdf" target="_blank">pdf</a>, <a href="visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pptx" target="_blank" download>pptx</a> | <a href="https://github.com/eemilycchen/blue-line-trolley" target="_blank">source code</a> | <a href="html/blue-line-trolley/blue-line-trolley.html" target="_blank">html code</a></tab></div>
+	<div class="stack"><tab>Python &middot; Seaborn &middot; Matplotlib &middot; GeoPandas &middot; Tableau</tab></div>
+	<section>
+		<tableau-viz id="tableauViz1"
+			src="https://public.tableau.com/views/incidentcounts/Sheet1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link"
+			toolbar="bottom" hide-tabs>
+		</tableau-viz>
+	</section>
+</div>
+
+
+<div class="card">
+	<div class="title">Data Visualizations with Toy Datasets</div>
+	<div class="meta">Ongoing</div>
+	<p class="impact">Interactive Tableau dashboards exploring education outcomes (field of study, starting salary, gender splits) and HR analytics (employment types, satisfaction trends over time).</p>
+	<section>
+		<tableau-viz id="tableauViz2"
+			src="https://public.tableau.com/views/education_success_insights/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+			toolbar="bottom" hide-tabs>
+		</tableau-viz>
+	</section>
+	<section>
+		<tableau-viz id="tableauViz3"
+			src="https://public.tableau.com/views/cleaned_hr_data/HR_Analysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+			toolbar="bottom" hide-tabs>
+		</tableau-viz>
+	</section>
+	<div class="stack"><tab>Tableau</tab></div>
+</div>
+
+
+<!-- Technical skills -->
+<h2>Technical Skills</h2>
 <p>
-<a href="https://github.com/eemilycchen" target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a> 
+<tab><b>Languages:</b> Python, R, SQL, C/C++, Java, MATLAB</tab><br>
+<tab><b>Data &amp; ML:</b> PyTorch, Scikit-learn, XGBoost, PCA, Transformers (BERT, BioLORD), Pandas, Dask</tab><br>
+<tab><b>Databases:</b> PostgreSQL, Neo4j, Qdrant, MongoDB</tab><br>
+<tab><b>Infra &amp; Tools:</b> AWS (EC2, S3), Docker, Git, ETL, Streamlit, Tableau, Cursor</tab>
+</p>
+
+
+<!-- Awards section -->
+<h2>AWARDS &amp; RECOGNITION</h2>
+<div class="card">
+	<div class="title">Teaching Assistant Tuition Remission</div>
+	<div class="meta">Grand Award: $7,124</div>
+	<p class="impact">Awarded for serving as a graduate TA in the Halıcıoğlu Data Science Institute. </p>
+</div>
+<div class="card">
+	<div class="title">Shores Scholarship</div>
+	<div class="meta">Grand Award: $119,016</div>
+	<p class="impact">Awarded for academic excellence and leadership potential during undergraduate studies.</p>
+</div>
+<div class="card">
+	<div class="title">Provost Honors</div>
+	<p class="impact">Awarded multiple quarters for maintaining quarterly GPA in the top percentile of the college.</p>
+</div>
+<div class="card">
+	<div class="title">Backpack to Briefcase &mdash; Debate Champion</div>
+	<div class="meta">Cash Award: $100</div>
+	<p class="impact">Won first place in the Backpack to Briefcase professional debate competition, earning a $100 cash prize for argumentation, delivery, and rebuttal under time pressure.</p>
+</div>
+<div class="card">
+	<div class="title">LVMTA Chase-Riecken Musicianship Exam &mdash; Level 10 Piano (Theory + Technique/Repertoire)</div>
+	<div class="meta">Certificate + Trophy &middot; Highest Pre-Collegiate Level</div>
+	<p class="impact">Passed both the Theory and Technique/Repertoire components of the Las Vegas Music Teachers Association's Chase-Riecken Musicianship Exam at Level 10.</p>
+</div>
+
+
+<h2>Somewhere Between Commits...</h2>
+
+<div style="display: flex; gap: 16px; margin-top: 30px; flex-wrap: wrap; justify-content: center; max-width: 75%; margin-left: auto; margin-right: auto;">
+	<img src="beach.JPG" alt="Beach" style="flex: 1 1 0; min-width: 150px; max-width: 33%; height: auto; object-fit: cover; border-radius: 8px;">
+	<img src="coffee.jpg" alt="Latte art" style="flex: 1 1 0; min-width: 150px; max-width: 33%; height: auto; object-fit: cover; border-radius: 8px;">
+</div>
+
+<h2>Ways to Reach Me</h2>
+<p>
+<a href="https://github.com/eemilycchen" target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a>
 <a href="https://www.linkedin.com/in/eemilycchen/" target="_blank"><i class="fab fa-linkedin" style='font-size:30px'></i></a>
 <a href="https://x.com/eemilycchen" target="_blank"><i class="fab fa-x-twitter" style='font-size:30px'></i></a>
+<a href="mailto:emc001@ucsd.edu"><i class="fas fa-envelope" style='font-size:30px'></i></a>
 </p>
 </body>
 </html>
