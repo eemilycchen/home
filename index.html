@@ -1,324 +1,477 @@
-<!-- 
-	Author: Emily Chen
-	Bugs: None
--->
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- How can we combine logos and links together? -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
-
-	<title> Emily Chen</title>
-	<!-- Tableau Visualization -->
+	<title>Emily Chen</title>
 	<script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 	<style>
-	body {
-		background-color:white;
-		margin: 0 10%;
-		font-family: Georgia, serif;
-	}
-	tab {
-    display: inline-block;
-    margin-left: 1em;
-	}
-	/* How do we do that cool vertical line thing? */
-	.vertical-line {
-		border-left: 5px solid  #000000b8;
-		height: auto;
+	:root {
+		--bg: #ffffff;
+		--text: #1a1a1a;
+		--text-secondary: #555;
+		--border: #e5e5e5;
+		--tag-bg: #f0f0f0;
+		--tag-text: #444;
+		--card-border: #e0e0e0;
+		--link-hover: #d946a8;
+		--accent: #32CD32;
 	}
 
-	h1 {
-		text-align: center;
-		font-family: Georgia, serif;
-		color: #000000b8;
-		font-size:2em;
-		text-transform: uppercase;
-		border-bottom: 1px solid  #000000b8;
-		margin-top: 30px;
+	html.dark {
+		--bg: #111;
+		--text: #e5e5e5;
+		--text-secondary: #aaa;
+		--border: #2a2a2a;
+		--tag-bg: #252525;
+		--tag-text: #bbb;
+		--card-border: #2a2a2a;
 	}
-	h2 {
-		color:  #000000b8;
-		font-family: Georgia, serif;
-		font-size: 1.2em;
-	}
-	h3 {
-		color:  #000000b8;
-		font-family: Georgia, serif;
-		font-size: 1em;
-	}
-	/* How do I update the footnote? */
-	body::after {
-		content: 'Last Updated April 2026';
-		display: block;
-		position: relative;
-		height: 10px;
-		width: 100%;
-		border-top: 1px solid  #000000b8;
-		margin-top: 30px;
-		padding-bottom: 30px;
-	}
-	/* How do I add light mode colors for links? */
-	a:link {
-		color: black;
-	}
-	a:visited {
-		color: black;
-	}
-	a:hover {
-		color: Hotpink;
-	}
-	a:active {
-		color: green;
-	}
-	/* How to add a green dot?*/
-	.dot {
-	height: 10px;
-	width: 10px;
-	background-color: #32CD32;
-	border-radius: 50%;
-	display: inline-block;
-	}
-	.card {
-		border-left: 3px solid #000000b8;
-		padding: 8px 16px;
-		margin: 14px 0;
-	}
-	.card .title {
-		font-weight: bold;
-		color: #000000b8;
-	}
-	.card .meta {
-		font-style: italic;
-		color: #00000099;
-		font-size: 0.95em;
-	}
-	.card .impact {
-		margin: 6px 0;
-	}
-	.card .stack {
-		font-size: 0.9em;
-		color: #00000099;
-	}
-	.links a {
-		text-decoration: underline;
-	}
-	.subtitle {
-		text-align: center;
-		font-family: Georgia, serif;
-		color: #000000b8;
-		font-size: 1.05em;
-		margin-top: -10px;
-		margin-bottom: 20px;
-		font-style: italic;
-	}
-	
-	/* How do change colors for dark mode? */
-	@media (prefers-color-scheme: dark) {
+
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+
 	body {
-			background-color: black;
-		}
-		.vertical-line {
-		border-left: 5px solid white;
-		}
-		tab {
+		background: var(--bg);
+		color: var(--text);
+		font-family: "Times New Roman", Times, serif;
+		line-height: 1.7;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.container {
+		max-width: 816px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	/* ---- Nav ---- */
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 0;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 48px;
+	}
+	nav .site-name {
+		font-weight: 600;
+		font-size: 1.05rem;
+		color: var(--text);
+		text-decoration: none;
+	}
+	nav .nav-links {
+		display: flex;
+		gap: 24px;
+	}
+	nav .nav-links a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.2s;
+	}
+	nav .nav-links a:hover { color: var(--text); }
+	.theme-toggle {
+		background: none;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		padding: 4px 8px;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		color: var(--text);
+		transition: border-color 0.2s;
+	}
+	.theme-toggle:hover { border-color: var(--text-secondary); }
+
+	/* ---- Hero / Intro ---- */
+	.hero {
+		margin-bottom: 48px;
+	}
+	.hero h1 {
+		font-size: 1.6rem;
+		font-weight: 700;
+		margin-bottom: 2px;
+	}
+	.hero .subtitle {
+		color: var(--text-secondary);
+		font-size: 0.95rem;
+		margin-bottom: 16px;
+	}
+	.hero .social-icons {
+		display: flex;
+		gap: 16px;
+		margin-bottom: 24px;
+	}
+	.hero .social-icons a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		color: var(--text-secondary);
+		font-size: 1.15rem;
+		transition: color 0.2s;
+		text-decoration: none;
+	}
+	.hero .social-icons a:hover { color: var(--text); }
+	.hero .bio {
+		color: var(--text);
+		font-size: 0.95rem;
+	}
+	.hero .bio p { margin-bottom: 12px; }
+	.hero .bio a { color: var(--text); }
+	.hero .bio a:hover { color: var(--link-hover); }
+
+	/* ---- Section headers ---- */
+	h2.section-title {
+		font-size: 1.15rem;
+		font-weight: 600;
+		margin-bottom: 24px;
+		padding-top: 32px;
+		border-top: 1px solid var(--border);
+	}
+
+	/* ---- Experience / Project cards ---- */
+	.card {
+		margin-bottom: 32px;
+	}
+	.card-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		flex-wrap: wrap;
+		gap: 4px;
+		margin-bottom: 2px;
+	}
+	.card-title {
+		font-weight: 600;
+		font-size: 0.95rem;
+		color: var(--text);
+	}
+	.card-title .live-dot {
 		display: inline-block;
-		margin-left: 1em;
-		color: white;
-		}
-		h1 {
-			color:white;
-			border-bottom: 1px solid  white;
-		}
-		h2 {
-			color: white;
-		}
-		h3 {
-			color: white;
-		}
-		p {
-			color: white;
-		}
-		body::after {
-			color: white;
-			border-top: 1px solid white;
-		}
-		a:link {
-			color: white;
-		}
-		a:visited {
-			color: white;
-		}
-		a:hover {
-			color: Hotpink;
-		}
-		a:active {
-			color: green;
-		}
-		.card {
-			border-left: 3px solid white;
-		}
-		.card .title,
-		.card .meta,
-		.card .impact,
-		.card .stack {
-			color: white;
-		}
-		.subtitle {
-			color: white;
-		}
+		width: 8px;
+		height: 8px;
+		background: var(--accent);
+		border-radius: 50%;
+		margin-left: 6px;
+		vertical-align: middle;
+	}
+	.card-meta {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+	}
+	.card-body {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		margin: 6px 0 10px;
+		line-height: 1.65;
+	}
+	.card-links {
+		font-size: 0.85rem;
+		margin-bottom: 10px;
+	}
+	.card-links a {
+		color: var(--text-secondary);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition: color 0.2s;
+	}
+	.card-links a:hover { color: var(--text); }
+
+	/* ---- Tags / badges ---- */
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 8px;
+	}
+	.tag {
+		background: var(--tag-bg);
+		color: var(--tag-text);
+		font-size: 0.75rem;
+		padding: 3px 10px;
+		border-radius: 999px;
+		white-space: nowrap;
+	}
+
+	/* ---- Figures ---- */
+	.card figure {
+		margin: 12px 0;
+	}
+	.card figure img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		border-radius: 8px;
+		border: 1px solid var(--border);
+	}
+	.card figure figcaption {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		margin-top: 6px;
+		line-height: 1.5;
+	}
+
+	/* ---- Tableau ---- */
+	.card tableau-viz {
+		display: block;
+		margin-top: 12px;
+	}
+
+	/* ---- Photo row ---- */
+	.photo-row {
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 12px 0 32px;
+	}
+	.photo-row img {
+		flex: 1 1 0;
+		min-width: 112px;
+		max-width: 38%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+
+	/* ---- Footer ---- */
+	footer {
+		border-top: 1px solid var(--border);
+		margin-top: 48px;
+		padding: 24px 0;
+		text-align: center;
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+	}
+	footer a {
+		color: var(--text-secondary);
+		text-decoration: none;
 	}
 	</style>
-	
 </head>
 
-
 <body>
+<div class="container">
 
-<h1><br>Emily Chen</h1>
-<div class="subtitle">Math-grounded, Data-driven, Coding possibilities</div>
+	<nav>
+		<a class="site-name" href="index.html">Emily's Home</a>
+		<div class="nav-links">
+			<a href="blog.html">Blog</a>
+			<a href="mailto:emc001@ucsd.edu">Contact</a>
+			<button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">&#9790;</button>
+		</div>
+	</nav>
 
-<!-- About section -->
-<div class="vertical-line">
-<blockquote>
-	<h2>About</h2>
-	<p>
-	Hi! I'm Emily, an M.S. Data Science candidate at UC San Diego's Halıcıoğlu Data Science Institute, focusing on Artificial Intelligence and Data &amp; Society. I hold a B.S. in Applied Mathematics with a Computer Science minor from UCSD's Jacobs School of Engineering.
-	</p>
-	<p>
-	I build scalable data pipelines, multi-model database systems, and interactive tools that turn complex data into clear recommendations. I currently TA <a href="https://bsalimi.github.io/dsc100-sp26/" target="_blank">Data Management (DSC 100)</a> and previously studied text representation models as a Graduate Researcher at UCSD.
-	</p>
-	<p>
-	Outside of tech, I like to take long walks around the beach, enjoy a good coffee, and craft gifts for my loved  ones.
-	</p>
-</blockquote>
-</div>
+	<!-- Hero -->
+	<section class="hero">
+		<h1>Emily Chen</h1>
+		<p class="subtitle">M.S. Data Science @ UCSD</p>
+		<div class="social-icons">
+			<a href="mailto:emc001@ucsd.edu" aria-label="Email"><i class="fas fa-envelope"></i></a>
+			<a href="https://github.com/eemilycchen" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/eemilycchen/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+			<a href="https://x.com/eemilycchen" target="_blank" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+		</div>
+		<div class="bio">
+			<p>Hi! I'm Emily, an M.S. Data Science candidate at UC San Diego's Halıcıoğlu Data Science Institute, focusing on Artificial Intelligence and Data &amp; Society. I hold a B.S. in Applied Mathematics with a Computer Science minor from UCSD's Jacobs School of Engineering.</p>
+			<p>I build scalable data pipelines, multi-model database systems, and interactive tools that turn complex data into clear recommendations. I currently TA <a href="https://bsalimi.github.io/dsc100-sp26/" target="_blank">Data Management (DSC 100)</a> and previously studied text representation models as a Graduate Researcher at UCSD.</p>
+			<p>Outside of tech, I like to take long walks around the beach, enjoy a good coffee, and craft gifts for my loved ones.</p>
+		</div>
+	</section>
 
+	<!-- Projects -->
+	<h2 class="section-title">Projects</h2>
 
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">RAG System for Documentation Q&amp;A + Scientific-Claim Verification <span class="live-dot"></span></span>
+		</div>
+		<div class="card-meta">Mar 2026 &ndash; Present &middot; AI Engineering</div>
+		<p class="card-body">Building a reproducible multi-config RAG pipeline (LangChain + RapidFire AI) over RapidFire AI documentation and the SciFact claim dataset, evaluated with a 20-question hand-labeled golden set scored via NDCG@k and reciprocal rank under a 2,000-token context budget.</p>
+		<div class="tags">
+			<span class="tag">Python</span>
+			<span class="tag">LangChain</span>
+			<span class="tag">RapidFire AI</span>
+			<span class="tag">OpenAI API</span>
+			<span class="tag">HuggingFace Embeddings</span>
+			<span class="tag">JupyterHub / DSMLP</span>
+		</div>
+	</div>
 
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Clinical Decision Data Platform: MediDB Drug Safety &amp; Recommendation System</span>
+		</div>
+		<div class="card-meta">Jan 2026 &ndash; Mar 2026</div>
+		<p class="card-body">Built a Dockerized ETL pipeline ingesting 500+ openFDA FAERS reports and 16 Synthea EHR tables into 4 polyglot databases (PostgreSQL, Neo4j, Qdrant, MongoDB), encoding clinical narratives as 768-dim BioLORD-2023 embeddings. Reduced drug-interaction checks from O(N&sup2;) SQL self-joins to O(1)-per-hop Neo4j traversals and shipped a 5-tab Streamlit dashboard unifying 4 parallel database queries into a 3-tier risk report with full audit traceability.</p>
+		<figure>
+			<img src="reports/figures/drug_similarity_heatmap.png" alt="Drug-drug cosine similarity heatmap from BioLORD-2023 embeddings">
+			<figcaption>Drug&ndash;drug cosine similarity in BioLORD-2023 embedding space: diagonal self-similarity = 1.0, with meaningful off-diagonal structure (e.g., atorvastatin&ndash;simvastatin cluster as statins).</figcaption>
+		</figure>
+		<div class="card-links">
+			<a href="reports/clinical_report.pdf" target="_blank">report (pdf)</a> &middot;
+			<a href="reports/clinical_slides.pptx" target="_blank" download>slides (pptx)</a> &middot;
+			<a href="https://github.com/eemilycchen/drug_safety_and_recommendation" target="_blank">source code</a>
+		</div>
+		<div class="tags">
+			<span class="tag">Python</span>
+			<span class="tag">PostgreSQL</span>
+			<span class="tag">Neo4j</span>
+			<span class="tag">Qdrant</span>
+			<span class="tag">MongoDB</span>
+			<span class="tag">Docker</span>
+			<span class="tag">Streamlit</span>
+			<span class="tag">BioLORD-2023</span>
+		</div>
+	</div>
 
-<!-- Projects section -->
-<h2>Data Science Projects</h2>
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Big Data Analytics on NYC Taxi: XGBoost Yellow-vs-Green Classification</span>
+		</div>
+		<div class="card-meta">Jan 2026 &ndash; Mar 2026</div>
+		<p class="card-body">Engineered PCA-reduced hourly pickup profiles and tuned an XGBoost classifier across 131K NYC taxi trips, lifting accuracy 0.62 &rarr; 0.95 and macro-F1 0.62 &rarr; 0.94 (minority green-taxi recall 0.45 &rarr; 0.88), validated with a 30-replicate bootstrap (95% CI &plusmn;0.004). Streamlined AWS S3 retrieval across 400+ parquet files, cutting pipeline latency from 30 min to under 10 min.</p>
+		<figure>
+			<img src="reports/figures/part_b_interpretation.png" alt="Part B XGBoost confusion matrix and PC feature importance">
+			<figcaption>Part B XGBoost on pivoted hourly profiles: confusion matrix (left) shows strong diagonal for both yellow and green cabs; PC-component feature importance (right) highlights PC2 and PC4 as the top drivers.</figcaption>
+		</figure>
+		<div class="card-links">
+			<a href="reports/bigdata_report.pdf" target="_blank">report (pdf)</a> &middot;
+			<a href="reports/bigdata_slides.pdf" target="_blank">slides (pdf)</a>
+		</div>
+		<div class="tags">
+			<span class="tag">Python</span>
+			<span class="tag">XGBoost</span>
+			<span class="tag">PCA</span>
+			<span class="tag">Dask</span>
+			<span class="tag">AWS (EC2, S3)</span>
+			<span class="tag">Cursor</span>
+		</div>
+	</div>
 
-<div class="card">
-	<div class="title">RAG System for Documentation Q&amp;A + Scientific-Claim Verification <span class="dot"></span></div>
-	<div class="meta">Mar 2026 &ndash; Present &middot; AI Engineering &middot; In progress</div>
-	<p class="impact">Building a reproducible multi-config RAG pipeline (LangChain + RapidFire AI) over RapidFire AI documentation and the SciFact claim dataset, evaluated with a 20-question hand-labeled golden set scored via NDCG@k and reciprocal rank under a 2,000-token context budget.</p>
-	<div class="stack"><tab>Python &middot; LangChain &middot; RapidFire AI &middot; OpenAI API &middot; HuggingFace Embeddings &middot; JupyterHub / DSMLP Datahub</tab></div>
-</div>
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Multi-Task Learning on Goodreads Users</span>
+		</div>
+		<div class="card-meta">Sep 2025 &ndash; Dec 2025</div>
+		<p class="card-body">Ranked top 22% of 1,600 colleagues in a competitive ML evaluation by designing and optimizing predictive models for binary classification, multi-class classification, and regression under performance and validation constraints. Increased categorical prediction accuracy by ~120% through feature engineering, hyperparameter tuning, and transformer-based embeddings.</p>
+		<figure>
+			<img src="reports/figures/goodreads_model_accuracies.png" alt="Goodreads category prediction accuracy progression across three model iterations">
+			<figcaption>Goodreads category-prediction accuracy across three model iterations: BoW + LogReg (0.690) &rarr; TF-IDF (1&ndash;2gm) + Linear SVC (0.711) &rarr; DistilBERT fine-tuned (0.780).</figcaption>
+		</figure>
+		<div class="card-links">
+			<a href="reports/goodreads_report.pdf" target="_blank">report (pdf)</a> &middot;
+			<a href="reports/goodreads_slides.pdf" target="_blank">slides (pdf)</a>
+		</div>
+		<div class="tags">
+			<span class="tag">Python</span>
+			<span class="tag">PyTorch</span>
+			<span class="tag">Transformers</span>
+			<span class="tag">Scikit-learn</span>
+		</div>
+	</div>
 
-<div class="card">
-	<div class="title">Clinical Decision Data Platform: MediDB Drug Safety &amp; Recommendation System <span class></span></div>
-	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
-	<p class="impact">Built a Dockerized ETL pipeline ingesting 500+ openFDA FAERS reports and 16 Synthea EHR tables into 4 polyglot databases (PostgreSQL, Neo4j, Qdrant, MongoDB), encoding clinical narratives as 768-dim BioLORD-2023 embeddings. Reduced drug-interaction checks from O(N&sup2;) SQL self-joins to O(1)-per-hop Neo4j traversals and shipped a 5-tab Streamlit dashboard unifying 4 parallel database queries into a 3-tier (Low/Moderate/High) risk report with full audit traceability.</p>
-	<figure style="margin: 10px 0;">
-		<img src="reports/figures/drug_similarity_heatmap.png" alt="Drug-drug cosine similarity heatmap from BioLORD-2023 embeddings" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
-		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Drug&ndash;drug cosine similarity in BioLORD-2023 embedding space: diagonal self-similarity = 1.0, with meaningful off-diagonal structure (e.g., atorvastatin&ndash;simvastatin cluster as statins).</figcaption>
-	</figure>
-	<div class="links"><tab>summary <a href="reports/clinical_report.pdf" target="_blank">report (pdf)</a>, <a href="reports/clinical_slides.pptx" target="_blank" download>slides (pptx)</a> | <a href="https://github.com/eemilycchen/drug_safety_and_recommendation" target="_blank">source code</a></tab></div>
-	<div class="stack"><tab>Python &middot; PostgreSQL &middot; Neo4j &middot; Qdrant &middot; MongoDB &middot; Docker &middot; Streamlit &middot; BioLORD-2023</tab></div>
-</div>
-
-<div class="card">
-	<div class="title">Big Data Analytics on NYC Taxi: XGBoost Yellow-vs-Green Classification</div>
-	<div class="meta">Jan 2026 &ndash; Mar 2026</div>
-	<p class="impact">Engineered PCA-reduced hourly pickup profiles and tuned an XGBoost classifier across 131K NYC taxi trips, lifting accuracy 0.62 &rarr; 0.95 and macro-F1 0.62 &rarr; 0.94 (minority green-taxi recall 0.45 &rarr; 0.88), validated with a 30-replicate bootstrap (95% CI &plusmn;0.004). Streamlined AWS S3 retrieval across 400+ parquet files, cutting pipeline latency from 30 min to under 10 min.</p>
-	<figure style="margin: 10px 0;">
-		<img src="reports/figures/part_b_interpretation.png" alt="Part B XGBoost confusion matrix and PC feature importance" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
-		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Part B XGBoost on pivoted hourly profiles: confusion matrix (left) shows strong diagonal for both yellow and green cabs; PC-component feature importance (right) highlights PC2 and PC4 as the top drivers.</figcaption>
-	</figure>
-	<div class="links"><tab>summary <a href="reports/bigdata_report.pdf" target="_blank">report (pdf)</a>, <a href="reports/bigdata_slides.pdf" target="_blank">slides (pdf)</a></tab></div>
-	<div class="stack"><tab>Python &middot; XGBoost &middot; PCA &middot; Dask &middot; AWS (EC2, S3) &middot; Cursor</tab></div>
-</div>
-
-<div class="card">
-	<div class="title">Multi-Task Learning on Goodreads Users</div>
-	<div class="meta">Sep 2025 &ndash; Dec 2025</div>
-	<p class="impact">Ranked top 22% of 1,600 colleagues in a competitive ML evaluation by designing and optimizing predictive models for binary classification, multi-class classification, and regression under performance and validation constraints. Increased categorical prediction accuracy by ~120% through feature engineering, hyperparameter tuning, and transformer-based embeddings.</p>
-	<figure style="margin: 10px 0;">
-		<img src="reports/figures/goodreads_model_accuracies.png" alt="Goodreads category prediction accuracy progression across three model iterations" style="display:block; max-width:75%; height:auto; border-radius: 8px; border: 1px solid #00000022;">
-		<figcaption style="font-size:0.85em; color:#00000099; margin-top:6px;">Goodreads category-prediction accuracy across three model iterations: BoW + LogReg (0.690) &rarr; TF-IDF (1&ndash;2gm) + Linear SVC (0.711) &rarr; DistilBERT fine-tuned (0.780).</figcaption>
-	</figure>
-	<div class="links"><tab>summary <a href="reports/goodreads_report.pdf" target="_blank">report (pdf)</a>, <a href="reports/goodreads_slides.pdf" target="_blank">slides (pdf)</a></tab></div>
-	<div class="stack"><tab>Python &middot; PyTorch &middot; Transformers &middot; Scikit-learn</tab></div>
-</div>
-
-<div class="card">
-	<div class="title">San Diego Blue Line Trolley: Property Values, Police Proximity &amp; Crime Rates</div>
-	<div class="meta">Spring 2024</div>
-	<p class="impact">Analyzed the relationship between San Diego Blue Line Trolley stops, surrounding property values, police station proximity, and crime incident rates; produced an interactive Tableau dashboard for stakeholder-facing insights.</p>
-	<div class="links"><tab>summary <a href="https://eemilycchen.github.io/home/visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pdf" target="_blank">pdf</a>, <a href="visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pptx" target="_blank" download>pptx</a> | <a href="https://github.com/eemilycchen/blue-line-trolley" target="_blank">source code</a> | <a href="html/blue-line-trolley/blue-line-trolley.html" target="_blank">html code</a></tab></div>
-	<div class="stack"><tab>Python &middot; Seaborn &middot; Matplotlib &middot; GeoPandas &middot; Tableau</tab></div>
-	<section>
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">San Diego Blue Line Trolley: Property Values, Police Proximity &amp; Crime Rates</span>
+		</div>
+		<div class="card-meta">Spring 2024</div>
+		<p class="card-body">Analyzed the relationship between San Diego Blue Line Trolley stops, surrounding property values, police station proximity, and crime incident rates; produced an interactive Tableau dashboard for stakeholder-facing insights.</p>
+		<div class="card-links">
+			<a href="https://eemilycchen.github.io/home/visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pdf" target="_blank">pdf</a> &middot;
+			<a href="visual_presentations/A_Perspective_of_Property_Value_and_Police_Proximity_to_Crime_Rates_at_the_San_Diego_Blue_Line_Trolley.pptx" target="_blank" download>pptx</a> &middot;
+			<a href="https://github.com/eemilycchen/blue-line-trolley" target="_blank">source code</a> &middot;
+			<a href="html/blue-line-trolley/blue-line-trolley.html" target="_blank">html code</a>
+		</div>
+		<div class="tags">
+			<span class="tag">Python</span>
+			<span class="tag">Seaborn</span>
+			<span class="tag">Matplotlib</span>
+			<span class="tag">GeoPandas</span>
+			<span class="tag">Tableau</span>
+		</div>
 		<tableau-viz id="tableauViz1"
 			src="https://public.tableau.com/views/incidentcounts/Sheet1?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link"
+			width="100%" height="600"
 			toolbar="bottom" hide-tabs>
 		</tableau-viz>
-	</section>
+	</div>
+
+	<!-- Awards -->
+	<h2 class="section-title">Awards &amp; Recognition</h2>
+
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Teaching Assistant Tuition Remission</span>
+		</div>
+		<div class="card-meta">Grand Award: $7,124</div>
+		<p class="card-body">Awarded for serving as a graduate TA in the Halıcıoğlu Data Science Institute.</p>
+	</div>
+
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Shores Scholarship</span>
+		</div>
+		<div class="card-meta">Grand Award: $119,016</div>
+		<p class="card-body">Awarded for academic excellence and leadership potential during undergraduate studies.</p>
+	</div>
+
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Provost Honors</span>
+		</div>
+		<p class="card-body">Awarded multiple quarters for maintaining quarterly GPA in the top percentile of the college.</p>
+	</div>
+
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">Backpack to Briefcase &mdash; Debate Champion</span>
+		</div>
+		<div class="card-meta">Cash Award: $100</div>
+		<p class="card-body">Won first place in the Backpack to Briefcase professional debate competition, earning a $100 cash prize for argumentation, delivery, and rebuttal under time pressure.</p>
+	</div>
+
+	<div class="card">
+		<div class="card-header">
+			<span class="card-title">LVMTA Chase-Riecken Musicianship Exam &mdash; Level 10 Piano</span>
+		</div>
+		<div class="card-meta">Certificate &amp; Trophy &middot; Highest Pre-Collegiate Level</div>
+		<p class="card-body">Passed both the Theory and Technique/Repertoire components of the Las Vegas Music Teachers Association's Chase-Riecken Musicianship Exam at Level 10.</p>
+	</div>
+
+	<!-- Personal -->
+	<h2 class="section-title">Somewhere Between Commits...</h2>
+
+	<div class="photo-row">
+		<img src="beach.JPG" alt="Beach">
+		<img src="coffee.jpg" alt="Latte art">
+	</div>
+
+	<footer>
+		Last Updated May 2026
+	</footer>
+
 </div>
-
-
-<div class="card">
-	<div class="title">Data Visualizations with Toy Datasets</div>
-	<p class="impact">Interactive Tableau dashboards exploring education outcomes (field of study, starting salary, gender splits) and HR analytics (employment types, satisfaction trends over time).</p>
-	<section>
-		<tableau-viz id="tableauViz2"
-			src="https://public.tableau.com/views/education_success_insights/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-			toolbar="bottom" hide-tabs>
-		</tableau-viz>
-	</section>
-	<section>
-		<tableau-viz id="tableauViz3"
-			src="https://public.tableau.com/views/cleaned_hr_data/HR_Analysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-			toolbar="bottom" hide-tabs>
-		</tableau-viz>
-	</section>
-</div>
-
-
-
-<!-- Awards section -->
-<h2>AWARDS &amp; RECOGNITION</h2>
-<div class="card">
-	<div class="title">Teaching Assistant Tuition Remission</div>
-	<div class="meta">Grand Award: $7,124</div>
-	<p class="impact">Awarded for serving as a graduate TA in the Halıcıoğlu Data Science Institute. </p>
-</div>
-<div class="card">
-	<div class="title">Shores Scholarship</div>
-	<div class="meta">Grand Award: $119,016</div>
-	<p class="impact">Awarded for academic excellence and leadership potential during undergraduate studies.</p>
-</div>
-<div class="card">
-	<div class="title">Provost Honors</div>
-	<p class="impact">Awarded multiple quarters for maintaining quarterly GPA in the top percentile of the college.</p>
-</div>
-<div class="card">
-	<div class="title">Backpack to Briefcase &mdash; Debate Champion</div>
-	<div class="meta">Cash Award: $100</div>
-	<p class="impact">Won first place in the Backpack to Briefcase professional debate competition, earning a $100 cash prize for argumentation, delivery, and rebuttal under time pressure.</p>
-</div>
-<div class="card">
-	<div class="title">LVMTA Chase-Riecken Musicianship Exam &mdash; Level 10 Piano (Theory + Technique/Repertoire)</div>
-	<div class="meta">Certificate &amp; Trophy &middot; Highest Pre-Collegiate Level</div>
-	<p class="impact">Passed both the Theory and Technique/Repertoire components of the Las Vegas Music Teachers Association's Chase-Riecken Musicianship Exam at Level 10.</p>
-</div>
-
-
-<h2>Somewhere Between Commits...</h2>
-
-<div style="display: flex; gap: 16px; margin-top: 30px; flex-wrap: wrap; justify-content: center; max-width: 75%; margin-left: auto; margin-right: auto;">
-	<img src="beach.JPG" alt="Beach" style="flex: 1 1 0; min-width: 150px; max-width: 33%; height: auto; object-fit: cover; border-radius: 8px;">
-	<img src="coffee.jpg" alt="Latte art" style="flex: 1 1 0; min-width: 150px; max-width: 33%; height: auto; object-fit: cover; border-radius: 8px;">
-</div>
-
-<h2>Ways to Reach Me</h2>
-<p>
-<a href="https://github.com/eemilycchen" target="_blank"><i class="fab fa-github" style='font-size:30px'></i></a>
-<a href="https://www.linkedin.com/in/eemilycchen/" target="_blank"><i class="fab fa-linkedin" style='font-size:30px'></i></a>
-<a href="https://x.com/eemilycchen" target="_blank"><i class="fab fa-x-twitter" style='font-size:30px'></i></a>
-<a href="mailto:emc001@ucsd.edu"><i class="fas fa-envelope" style='font-size:30px'></i></a>
-</p>
+<script>
+function toggleTheme() {
+	document.documentElement.classList.toggle('dark');
+	var isDark = document.documentElement.classList.contains('dark');
+	localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	document.querySelector('.theme-toggle').textContent = isDark ? '\u2609' : '\u263E';
+}
+(function() {
+	var saved = localStorage.getItem('theme');
+	var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	if (saved === 'dark' || (!saved && prefersDark)) {
+		document.documentElement.classList.add('dark');
+		document.addEventListener('DOMContentLoaded', function() {
+			document.querySelector('.theme-toggle').textContent = '\u2609';
+		});
+	}
+})();
+</script>
 </body>
 </html>
