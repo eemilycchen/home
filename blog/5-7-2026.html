@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog | Emily Chen</title>
+	<style>
+	:root {
+		--bg: #ffffff;
+		--text: #1a1a1a;
+		--text-secondary: #555;
+		--border: #e5e5e5;
+		--tag-bg: #f0f0f0;
+		--tag-text: #444;
+		--link-hover: #d946a8;
+	}
+
+	html.dark {
+		--bg: #111;
+		--text: #e5e5e5;
+		--text-secondary: #aaa;
+		--border: #2a2a2a;
+		--tag-bg: #252525;
+		--tag-text: #bbb;
+	}
+
+	* { margin: 0; padding: 0; box-sizing: border-box; }
+
+	body {
+		background: var(--bg);
+		color: var(--text);
+		font-family: "Times New Roman", Times, serif;
+		line-height: 1.7;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	.container {
+		max-width: 816px;
+		margin: 0 auto;
+		padding: 0 24px;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 0;
+		border-bottom: 1px solid var(--border);
+		margin-bottom: 48px;
+	}
+	nav .site-name {
+		font-weight: 600;
+		font-size: 1.05rem;
+		color: var(--text);
+		text-decoration: none;
+	}
+	nav .nav-links {
+		display: flex;
+		gap: 24px;
+	}
+	nav .nav-links a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.95rem;
+		transition: color 0.2s;
+	}
+	nav .nav-links a:hover { color: var(--text); }
+	.theme-toggle {
+		background: none;
+		border: 1px solid var(--border);
+		border-radius: 6px;
+		padding: 4px 8px;
+		cursor: pointer;
+		font-size: 1rem;
+		line-height: 1;
+		color: var(--text);
+		transition: border-color 0.2s;
+	}
+	.theme-toggle:hover { border-color: var(--text-secondary); }
+
+	.post-header {
+		margin-bottom: 32px;
+	}
+	.post-header h1 {
+		font-size: 1.6rem;
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+	.post-meta {
+		font-size: 0.85rem;
+		color: var(--text-secondary);
+	}
+
+	.post-content {
+		font-size: 0.95rem;
+		line-height: 1.8;
+	}
+	.post-content p {
+		margin-bottom: 16px;
+	}
+	.post-content h2 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		margin-top: 32px;
+		margin-bottom: 12px;
+	}
+	.post-content h3 {
+		font-size: 1.05rem;
+		font-weight: 600;
+		margin-top: 24px;
+		margin-bottom: 8px;
+	}
+	.post-content a {
+		color: var(--text);
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition: color 0.2s;
+	}
+	.post-content a:hover { color: var(--link-hover); }
+	.post-content ul, .post-content ol {
+		margin: 0 0 16px 24px;
+	}
+	.post-content li {
+		margin-bottom: 6px;
+	}
+	.post-content blockquote {
+		border-left: 3px solid var(--border);
+		padding-left: 16px;
+		margin: 16px 0;
+		color: var(--text-secondary);
+		font-style: italic;
+	}
+	.post-content code {
+		background: var(--tag-bg);
+		color: var(--tag-text);
+		font-size: 0.85em;
+		padding: 2px 6px;
+		border-radius: 4px;
+	}
+	.post-content pre {
+		background: var(--tag-bg);
+		padding: 16px;
+		border-radius: 8px;
+		overflow-x: auto;
+		margin: 16px 0;
+	}
+	.post-content pre code {
+		background: none;
+		padding: 0;
+		font-size: 0.85rem;
+	}
+	.post-content img {
+		display: block;
+		max-width: 100%;
+		height: auto;
+		border-radius: 8px;
+		border: 1px solid var(--border);
+		margin: 16px 0;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px;
+		margin-top: 32px;
+		padding-top: 24px;
+		border-top: 1px solid var(--border);
+	}
+	.tag {
+		background: var(--tag-bg);
+		color: var(--tag-text);
+		font-size: 0.75rem;
+		padding: 3px 10px;
+		border-radius: 999px;
+		white-space: nowrap;
+	}
+
+	.back-link {
+		display: inline-block;
+		margin-top: 32px;
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+	.back-link:hover { color: var(--text); }
+
+	/* ---- Photo row ---- */
+	.photo-row {
+		display: flex;
+		gap: 16px;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin: 12px 0 32px;
+	}
+	.photo-row img {
+		flex: 1 1 0;
+		min-width: 112px;
+		max-width: 38%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+	footer {
+		border-top: 1px solid var(--border);
+		margin-top: 48px;
+		padding: 24px 0;
+		text-align: center;
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+	}
+	</style>
+</head>
+
+<body>
+<div class="container">
+
+	<nav>
+		<a class="site-name" href="../index.html">Emily Chen</a>
+		<div class="nav-links">
+			<a href="../blog.html">Blog</a>
+			<a href="mailto:emc001@ucsd.edu">Contact</a>
+			<button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">&#9790;</button>
+		</div>
+	</nav>
+
+	<article>
+		<div class="post-header">
+			<h1>I'm at the Microsoft Office!</h1>
+			<div class="post-meta">May 7th, 2026</div>
+		</div>
+
+		<div class="post-content">
+			<p>
+				Yesterday, I stumbled across this workshop with zero expectation. As I followed along <a href="https://www.linkedin.com/in/jongalloway/" target="_blank">Jon Galloway</a>, Principal Product Manager at Microsoft, presenting his demo, I was able to see how he used agents seamlessly in his work. What stood out was how he used Squad within GitHub Copilot CLI. He was able to make tests, have the agents work with each other, and if he ever had to walk away from his desk for coffee, with just a simple command, he could scan a QR code and be able to command his agents straight from his phone. That was pretty cool. I can already see an abundance of features I can try to build for my work too!
+            </p>
+
+			<p>
+				Later on, the CTO of BetterBrain, <a href="https://www.linkedin.com/in/aditya-mookerjee-8803b432/" target="_blank">Aditya Mookerjee</a>, came to give us a talk about the key to unlock AI at the fullest potential, and it all comes down to three pillars that compound into a self-reinforcing cycle.
+			</p>
+			<p>
+				The first is setting the foundations. A reproducible production stack built for agentic coding from the ground up enables agents to run, observe, and verify the system they're modifying in real time. 	
+			</p>
+			<p>
+				The second is context-rich harnesses. This means pulling in quality data from the right sources. Agents are only as good as what they're given to work with. So the emphasis is on ensuring the data feeding them is clean, relevant, and rich enough to actually drive meaningful output.	
+			</p>
+			<p>
+				The third is durable validation loops. Agents continuously check whether a fix or a new feature is actually working in production and does so by even purposely breaking the system, so that features can be fixed before it goes into production.
+			</p>
+			<p>
+				I was able to see his passion to transform healthcare. He observed a real and persistant limitation of healthcare today where there are no incentives to fully leverage data from variety of important sources, including wearable technologies, and let alone integrate it seamlessly for the patient. His work is to change that.		
+			</p>
+			<p>
+				Seeing what Jon and the team at BetterBrain are building, and realizing it's all within reach, made me genuinely excited about where our sociotechnical world is heading!
+			</p>
+		</div>
+		<div class="photo-row">
+			<img src="microsoft.jpg" alt="Microsoft">
+		</div>
+
+		<div class="tags">
+			<span class="tag">Agents</span> <span class="tag">Networking</span> <span class="tag">Healthcare</span>
+		</div>
+	</article>
+
+	<a class="back-link" href="../blog.html">&larr; Back to blog</a>
+
+	<footer>
+		Last updated May 2026
+	</footer>
+
+</div>
+<script>
+function toggleTheme() {
+	document.documentElement.classList.toggle('dark');
+	var isDark = document.documentElement.classList.contains('dark');
+	localStorage.setItem('theme', isDark ? 'dark' : 'light');
+	document.querySelector('.theme-toggle').textContent = isDark ? '\u2609' : '\u263E';
+}
+(function() {
+	var saved = localStorage.getItem('theme');
+	var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	if (saved === 'dark' || (!saved && prefersDark)) {
+		document.documentElement.classList.add('dark');
+		document.addEventListener('DOMContentLoaded', function() {
+			document.querySelector('.theme-toggle').textContent = '\u2609';
+		});
+	}
+})();
+</script>
+</body>
+</html>
